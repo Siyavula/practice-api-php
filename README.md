@@ -28,7 +28,9 @@ This repo serves as a demo application written in [PHP](https://www.php.net/) to
     git clone git@github.com:Siyavula/practice-api-php.git
 #### Go to the `practice-api-python` directory
     cd practice-api-php
-#### Set your username and password in `responsive.php` and `basic.php`
+#### Make a personal `.env` copy
+    cp .env my.env
+#### Set your username and password in `my.env`
 #### Start the app
     ./start.sh
 #### Go to http://localhost:8001/responsive.php or http://localhost:8001/basic.php
