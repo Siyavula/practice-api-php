@@ -1,7 +1,7 @@
 <?php
-  $get_token_url = 'https://www.siyavula.com/api/practice/v1/get-token';
-  $get_question_url = 'https://www.siyavula.com/api/practice/v1/get-question';
-  $submit_answer_url = 'https://www.siyavula.com/api/practice/v1/submit-answer';
+  $get_token_url = getenv('practice_api_host').'/api/practice/v1/get-token';
+  $get_question_url = getenv('practice_api_host').'/api/practice/v1/get-question';
+  $submit_answer_url = getenv('practice_api_host').'/api/practice/v1/submit-answer';
   $template_id = 1805;
   $random_seed = 259974;
 
@@ -10,8 +10,8 @@
 
   // Create the payload to get a new token
   $data = array(
-      'name' => '',
-      'password' => '',
+      'name' => getenv('api_client_name'),
+      'password' => getenv('api_client_password'),
       'client_ip' => '127.0.0.1',
       'theme' => 'basic',
       'region' => 'ZA',

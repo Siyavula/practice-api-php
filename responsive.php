@@ -1,6 +1,6 @@
 <?php
   // Example of getting a token via PHP cURL
-  $get_token_url = 'https://www.siyavula.com/api/practice/v1/get-token';
+  $get_token_url = getenv('practice_api_host').'/api/practice/v1/get-token';
   $template_id = 2122;
   $random_seed = 487029;
 
@@ -9,8 +9,8 @@
 
   // Create the payload to get a new token
   $data = array(
-      'name' => '',
-      'password' => '',
+      'name' => getenv('api_client_name'),
+      'password' => getenv('api_client_password'),
       'client_ip' => '127.0.0.1',
       'theme' => 'responsive',
       'region' => 'ZA',
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="https://www.siyavula.com/static/themes/emas/practice-api/practice-api.min.css" />
   <script type="text/javascript">
     token = '<?php echo $response->token; ?>';
-    template_id = '<?php echo $template_id; ?>';;
-    random_seed = '<?php echo $random_seed; ?>';;
+    template_id = '<?php echo $template_id; ?>';
+    random_seed = '<?php echo $random_seed; ?>';
   </script>
 </head>
 <body>
