@@ -9,8 +9,8 @@
 
   // Create the payload to get a new token
   $data = array(
-      'name' => 'siyavula',
-      'password' => 'Vxw5PQCVyAt4vD6uHznVU6GUfjU3j6Et35rCqZWU3EYL376bfch4ZyjSBWgGJaEXWdZLWm6EePETbCghezgFbwrgUPQ5DuYbmJ9tVbxyTEK3us3H8tVKpLYcFaffsMSFw2bPAc6jU4MjvnJgXf4ufxuLzMTQR2McCkASq3Y8bHTY8ujDweNFceXs2PSZw6j3qrCL3TquVwqBr2EygfhyDYpjqG5amSa4Ey32N2UySBGMPumQQCYyWXPXvvHHYQrX',
+      'name' => '',
+      'password' => '',
       'client_ip' => '127.0.0.1',
       'theme' => 'responsive',
       'region' => 'ZA',
