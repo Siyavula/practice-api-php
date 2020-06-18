@@ -1,7 +1,12 @@
 <?php
-  $get_token_url = getenv('practice_api_host').'/api/practice/v1/get-token';
-  $get_question_url = getenv('practice_api_host').'/api/practice/v1/get-question';
-  $submit_answer_url = getenv('practice_api_host').'/api/practice/v1/submit-answer';
+  // Uncomment the following lines to print errors
+  //ini_set('display_errors', 1);
+  //ini_set('display_startup_errors', 1);
+  //error_reporting(E_ALL);
+
+  $get_token_url = getenv('question_api_host').'/api/question/v1/get-token';
+  $get_question_url = getenv('question_api_host').'/api/question/v1/get-question';
+  $submit_answer_url = getenv('question_api_host').'/api/question/v1/submit-answer';
   $template_id = 1805;
   $random_seed = 259974;
 
@@ -25,6 +30,9 @@
   curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
   // Return response instead of outputting
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  // Allow self signed certificates (don't do this in production)
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
   // Get the token
   $response = json_decode(curl_exec($ch));
   // Close cURL resource
@@ -46,6 +54,8 @@
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
     // Set the authentication header
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'JWT: '.$response->token,
@@ -66,6 +76,8 @@
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
     // Set the authentication header
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'JWT: '.$response->token,
@@ -77,14 +89,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Practice API</title>
+  <title>Question API</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://www.siyavula.com/static/themes/mobile/practice-api/practice-api.min.css" />
+  <link rel="stylesheet" href="<?php echo getenv('question_api_host'); ?>/static/themes/mobile/question-api/question-api.min.css" />
 </head>
 <body class="za-mobile mobile sv">
   <div id="margins">
     <div id="content">
-      <div id="monassis" class="monassis monassis--practice monassis--maths monassis--practice-api">
+      <div id="monassis" class="monassis monassis--practice monassis--maths monassis--question-api">
         <div class="question-wrapper">
           <div class="question-content">
             <?php echo $response->question_html; ?>
