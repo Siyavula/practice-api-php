@@ -25,9 +25,9 @@ This repo serves as a demo application written in [PHP](https://www.php.net/) to
 
 ## Installation
 #### Clone the repo
-    git clone git@github.com:Siyavula/practice-api-php.git
+    git clone git@github.com:Siyavula/question-api-php.git
 #### Go to the `practice-api-python` directory
-    cd practice-api-php
+    cd question-api-php
 #### Make a personal `.env` copy
     cp .env my.env
 #### Set your username and password in `my.env`
